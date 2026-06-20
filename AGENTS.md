@@ -63,6 +63,13 @@ go test ./...
 
 ## NOTES
 
+- **環境變量**: 調用 API 的 `user` / `secret` 認證資訊可從環境變量取得；查看 API 文件網站若無權限，可從環境變量取得 `email` / `password` 進行登入。
+  | Key | 用途 |
+  |-----|------|
+  | `THESPORTS_USER` | API user |
+  | `THESPORTS_SECRET` | API secret |
+  | `THESPORTS_SITE_EMAIL` | API 文件網站登入 email |
+  | `THESPORTS_SITE_PASSWORD` | API 文件網站登入密碼 |
 - `golangci-lint` uses `tests: false` — test files are NOT linted. If `_test.go` files are added, update to `true` or remove the line.
 - `must[T]` in `utils.go:42` is dead code (unused). OK to remove.
 - `handlePath` in `client.go:57` has a `staticcheck S1017` warning — should use `strings.TrimPrefix`.
