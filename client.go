@@ -1,6 +1,7 @@
 package thesportsgo
 
 import (
+	"context"
 	"net/http"
 	"net/url"
 	"strings"
@@ -22,10 +23,26 @@ func (c *Client) GetClient() *http.Client {
 	return client
 }
 
-func (c *Client) Get(path string, query ...url.Values) (*http.Response, error) {
+// GetSecretInfo 取得 secret 信息
+func (c *Client) GetSecretInfo() url.Values {
+	s := make(url.Values)
+	s.Set("user", c.user)
+	s.Set("secret", c.secret)
+	return s
+}
+
+// SecretGet 使用 secret 信息發送 get 請求
+func (c *Client) SecretGet(ctx context.Context, path string, query ...url.Values) (*http.Response, error) {
+	s := c.GetSecretInfo()
+	return c.Get(ctx, path, append([]url.Values{s}, query...)...)
+}
+
+// Get 發送 get 請求
+func (c *Client) Get(ctx context.Context, path string, query ...url.Values) (*http.Response, error) {
+	ctx = handleContext(ctx)
 	q := handleQuery(query...)
 	path = c.handlePath(path)
-	request, err := newRequest(http.MethodGet, path, nil)
+	request, err := newRequest(ctx, http.MethodGet, path, nil)
 	if err != nil {
 		return nil, err
 	}
