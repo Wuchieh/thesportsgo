@@ -12,7 +12,7 @@ import (
 type CsgoListQuery struct {
 	Page *int    `json:"page,omitempty"`
 	Time *int    `json:"time,omitempty"`
-	UUID string `json:"uuid"`
+	UUID *string `json:"uuid,omitempty"`
 }
 
 // ——— CS:GO 國家/地區 ———
