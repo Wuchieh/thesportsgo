@@ -149,7 +149,7 @@ func (c *Client) BasketballMatchRecent(ctx context.Context, query BasketballMatc
 // BasketballMatchDiaryQuery 籃球賽程日期查詢參數
 type BasketballMatchDiaryQuery struct {
 	// 查詢日期時間戳
-	Tsp *int `json:"tsp,omitempty"`
+	Tsp int `json:"tsp"`
 }
 
 // BasketballMatchDiaryResponse 籃球賽程日期查詢回應型別
@@ -371,7 +371,7 @@ type BasketballLanguageQuery struct {
 	Time *int    `json:"time,omitempty"`
 	UUID *string `json:"uuid,omitempty"`
 	// 列表類型，1-分類，2-國家/地區，3-賽事，4-球隊（必填）
-	Type *int `json:"type,omitempty"`
+	Type int `json:"type"`
 }
 
 // BasketballLanguageResponse 籃球多語言回應型別
