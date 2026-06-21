@@ -28,7 +28,7 @@ func (c *Client) BasketballCountry(ctx context.Context) (*BasketballCountryRespo
 type BasketballCompetitionQuery struct {
 	Page *int    `json:"page,omitempty"`
 	Time *int    `json:"time,omitempty"`
-	UUID *string `json:"uuid,omitempty"`
+	UUID string `json:"uuid"`
 }
 
 // BasketballCompetitionResponse 籃球賽事回應型別
@@ -43,7 +43,7 @@ func (c *Client) BasketballCompetition(ctx context.Context, query BasketballComp
 type BasketballTeamQuery struct {
 	Page *int    `json:"page,omitempty"`
 	Time *int    `json:"time,omitempty"`
-	UUID *string `json:"uuid,omitempty"`
+	UUID string `json:"uuid"`
 }
 
 // BasketballTeamResponse 籃球球隊回應型別
@@ -58,7 +58,7 @@ func (c *Client) BasketballTeam(ctx context.Context, query BasketballTeamQuery) 
 type BasketballPlayerQuery struct {
 	Page *int    `json:"page,omitempty"`
 	Time *int    `json:"time,omitempty"`
-	UUID *string `json:"uuid,omitempty"`
+	UUID string `json:"uuid"`
 }
 
 // BasketballPlayerResponse 籃球球員回應型別
@@ -73,7 +73,7 @@ func (c *Client) BasketballPlayer(ctx context.Context, query BasketballPlayerQue
 type BasketballCoachQuery struct {
 	Page *int    `json:"page,omitempty"`
 	Time *int    `json:"time,omitempty"`
-	UUID *string `json:"uuid,omitempty"`
+	UUID string `json:"uuid"`
 }
 
 // BasketballCoachResponse 籃球教練回應型別
@@ -88,7 +88,7 @@ func (c *Client) BasketballCoach(ctx context.Context, query BasketballCoachQuery
 type BasketballVenueQuery struct {
 	Page *int    `json:"page,omitempty"`
 	Time *int    `json:"time,omitempty"`
-	UUID *string `json:"uuid,omitempty"`
+	UUID string `json:"uuid"`
 }
 
 // BasketballVenueResponse 籃球場館回應型別
@@ -103,7 +103,7 @@ func (c *Client) BasketballVenue(ctx context.Context, query BasketballVenueQuery
 type BasketballSeasonQuery struct {
 	Page *int    `json:"page,omitempty"`
 	Time *int    `json:"time,omitempty"`
-	UUID *string `json:"uuid,omitempty"`
+	UUID string `json:"uuid"`
 }
 
 // BasketballSeasonResponse 籃球賽季回應型別
@@ -118,7 +118,7 @@ func (c *Client) BasketballSeason(ctx context.Context, query BasketballSeasonQue
 type BasketballStageQuery struct {
 	Page *int    `json:"page,omitempty"`
 	Time *int    `json:"time,omitempty"`
-	UUID *string `json:"uuid,omitempty"`
+	UUID string `json:"uuid"`
 }
 
 // BasketballStageResponse 籃球階段回應型別
@@ -135,7 +135,7 @@ func (c *Client) BasketballStage(ctx context.Context, query BasketballStageQuery
 type BasketballMatchRecentQuery struct {
 	Page *int    `json:"page,omitempty"`
 	Time *int    `json:"time,omitempty"`
-	UUID *string `json:"uuid,omitempty"`
+	UUID string `json:"uuid"`
 }
 
 // BasketballMatchRecentResponse 籃球近期比賽回應型別
@@ -163,7 +163,7 @@ func (c *Client) BasketballMatchDiary(ctx context.Context, query BasketballMatch
 // BasketballMatchSeasonRecentQuery 籃球賽季賽程查詢參數（最新賽季）
 type BasketballMatchSeasonRecentQuery struct {
 	// 賽季 id
-	UUID *string `json:"uuid,omitempty"`
+	UUID string `json:"uuid"`
 }
 
 // BasketballMatchSeasonRecentResponse 籃球賽季賽程回應型別（最新賽季）
@@ -209,7 +209,7 @@ func (c *Client) BasketballMatchShootPointLive(ctx context.Context) (*Basketball
 // BasketballMatchTrendDetailQuery 籃球比賽走勢詳情查詢參數
 type BasketballMatchTrendDetailQuery struct {
 	// 比賽 id
-	UUID *string `json:"uuid,omitempty"`
+	UUID string `json:"uuid"`
 }
 
 // BasketballMatchTrendDetailResponse 籃球比賽走勢詳情回應型別
@@ -223,7 +223,7 @@ func (c *Client) BasketballMatchTrendDetail(ctx context.Context, query Basketbal
 // BasketballMatchShootPointQuery 籃球比賽投籃點查詢參數
 type BasketballMatchShootPointQuery struct {
 	// 比賽 id
-	UUID *string `json:"uuid,omitempty"`
+	UUID string `json:"uuid"`
 }
 
 // BasketballMatchShootPointResponse 籃球比賽投籃點回應型別
@@ -237,7 +237,7 @@ func (c *Client) BasketballMatchShootPoint(ctx context.Context, query Basketball
 // BasketballMatchAnalysisQuery 籃球比賽 H2H 分析查詢參數
 type BasketballMatchAnalysisQuery struct {
 	// 比賽 id
-	UUID *string `json:"uuid,omitempty"`
+	UUID string `json:"uuid"`
 }
 
 // BasketballMatchAnalysisResponse 籃球比賽 H2H 分析回應型別
@@ -251,7 +251,7 @@ func (c *Client) BasketballMatchAnalysis(ctx context.Context, query BasketballMa
 // BasketballMatchLiveHistoryQuery 籃球歷史比賽統計查詢參數
 type BasketballMatchLiveHistoryQuery struct {
 	// 比賽 id
-	UUID *string `json:"uuid,omitempty"`
+	UUID string `json:"uuid"`
 }
 
 // BasketballMatchLiveHistoryResponse 籃球歷史比賽統計回應型別
@@ -267,7 +267,7 @@ func (c *Client) BasketballMatchLiveHistory(ctx context.Context, query Basketbal
 // BasketballSeasonRecentTableDetailQuery 籃球賽季排名查詢參數（最新賽季）
 type BasketballSeasonRecentTableDetailQuery struct {
 	// 賽季 id
-	UUID *string `json:"uuid,omitempty"`
+	UUID string `json:"uuid"`
 }
 
 // BasketballSeasonRecentTableDetailResponse 籃球賽季排名回應型別（最新賽季）
@@ -281,7 +281,7 @@ func (c *Client) BasketballSeasonRecentTableDetail(ctx context.Context, query Ba
 // BasketballSeasonRecentTableDetailNewQuery 籃球賽季排名（含升降級）查詢參數
 type BasketballSeasonRecentTableDetailNewQuery struct {
 	// 賽季 id
-	UUID *string `json:"uuid,omitempty"`
+	UUID string `json:"uuid"`
 }
 
 // BasketballSeasonRecentTableDetailNewResponse 籃球賽季排名（含升降級）回應型別
@@ -306,7 +306,7 @@ func (c *Client) BasketballDataUpdate(ctx context.Context) (*BasketballDataUpdat
 type BasketballCompensationQuery struct {
 	Page *int    `json:"page,omitempty"`
 	Time *int    `json:"time,omitempty"`
-	UUID *string `json:"uuid,omitempty"`
+	UUID string `json:"uuid"`
 }
 
 // BasketballCompensationResponse 籃球歷史賠率補償回應型別
@@ -336,7 +336,7 @@ func (c *Client) BasketballOddsLive(ctx context.Context) (*BasketballOddsLiveRes
 // BasketballOddsHistoryQuery 籃球單場賠率歷史查詢參數
 type BasketballOddsHistoryQuery struct {
 	// 比賽 id
-	UUID *string `json:"uuid,omitempty"`
+	UUID string `json:"uuid"`
 }
 
 // BasketballOddsHistoryResponse 籃球單場賠率歷史回應型別
@@ -369,7 +369,7 @@ func (c *Client) BasketballOddsUpdate(ctx context.Context) (*BasketballOddsUpdat
 type BasketballLanguageQuery struct {
 	Page *int    `json:"page,omitempty"`
 	Time *int    `json:"time,omitempty"`
-	UUID *string `json:"uuid,omitempty"`
+	UUID string `json:"uuid"`
 	// 列表類型，1-分類，2-國家/地區，3-賽事，4-球隊（必填）
 	Type int `json:"type"`
 }
