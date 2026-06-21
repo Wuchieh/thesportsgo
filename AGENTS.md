@@ -1,6 +1,6 @@
 # AGENTS.md — thesportsgo
 
-**Generated:** 2026-06-20 | **Commit:** e2bec4a | **Branch:** master
+**Generated:** 2026-06-21 | **Commit:** bfbe913 | **Branch:** master
 
 Go client library for the TheSports.com API v1 (`github.com/wuchieh/thesportsgo`). Zero external dependencies. Flat single-package design.
 
@@ -10,7 +10,7 @@ Go client library for the TheSports.com API v1 (`github.com/wuchieh/thesportsgo`
 # Lint (uses gofumpt, not gofmt)
 golangci-lint run ./...
 
-# Tests — none exist yet, so this will report "no test files" (expected)
+# Tests — integration tests (require T_USER/T_SECRET env vars); JSON validation
 go test ./...
 ```
 
@@ -31,7 +31,7 @@ go test ./...
 | Core client changes | `client.go` | `NewClient`, `Get`, `SecretGet`, options |
 | Response handling | `response.go` | `Response[T]`, `MetaResponse[T]`, custom `UnmarshalJSON` |
 | Generic helpers | `utils.go` | `secretGet` (single call path), `toQuery` (struct→query) |
-| Integration test | `_test/main.go` | Manual script, gitignored, `go run ./_test/` |
+| Integration test | `init_test.go` + `football_test.go` + `output_test.go` | Uses `thesportsgo_test` package; outputs to `_test/output/` |
 
 ## CODE MAP
 
@@ -60,22 +60,22 @@ go test ./...
 - Comments: traditional Chinese on exported identifiers.
 - Response flow: `MetaResponse` (raw) → error check → `Response` (public).
 - Type aliases for endpoint responses: `FootballCategoryResponse = Response[[]FootballCategoryResponseData]`.
+- Endpoint naming: variable names are always `{MethodName}Query` (query struct) or `{MethodName}Response` (response type alias).
 
 ## NOTES
 
-- **環境變量**: 調用 API 的 `user` / `secret` 認證資訊可從環境變量取得；查看 API 文件網站若無權限，可從環境變量取得 `email` / `password` 進行登入。
-  | Key | 用途 |
-  |-----|------|
+- **Environment Variables**: API `user` / `secret` credentials can be obtained from env vars. If the API docs site requires login, `email` / `password` can be obtained from env vars.
+  | Key | Purpose |
+  |-----|---------|
   | `THESPORTS_USER` | API user |
   | `THESPORTS_SECRET` | API secret |
-  | `THESPORTS_SITE_EMAIL` | API 文件網站登入 email |
-  | `THESPORTS_SITE_PASSWORD` | API 文件網站登入密碼 |
-- `golangci-lint` uses `tests: false` — test files are NOT linted. If `_test.go` files are added, update to `true` or remove the line.
+  | `THESPORTS_SITE_EMAIL` | API docs site login email |
+  | `THESPORTS_SITE_PASSWORD` | API docs site login password |
+- `golangci-lint` uses `tests: false` — test files are NOT linted. Consider updating to `true` when test coverage grows.
 - `must[T]` in `utils.go:42` is dead code (unused). OK to remove.
 - `handlePath` in `client.go:57` has a `staticcheck S1017` warning — should use `strings.TrimPrefix`.
-- `FootballCompetition` returns `*FootballCountryResponse` — may be a copy-paste bug; verify if competition data matches country response shape.
+- `FootballCompetition` response type was fixed to `*FootballCompetitionResponse` — verify if any other endpoints have mismatched response types.
 - `toQuery` panics on marshal errors (acceptable for internal use, but library callers may expect error returns).
-- `_test/main.go` is gitignored — `go test ./...` reports "no test files" (expected).
 
 ## Conventions
 
