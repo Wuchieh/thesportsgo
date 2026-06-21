@@ -20,15 +20,15 @@ type BaseballCountryResponseData struct {
 
 // BaseballUniqueTournamentResponseData 棒球賽事資料（unique_tournament）
 type BaseballUniqueTournamentResponseData struct {
-	ID           string `json:"id"`
-	CategoryID   string `json:"category_id"`
-	CountryID    string `json:"country_id"`
-	Name         string `json:"name"`
-	ShortName    string `json:"short_name"`
-	Logo         string `json:"logo"`
-	CurSeasonID  string `json:"cur_season_id"`
-	UID          string `json:"uid"`
-	UpdatedAt    int64  `json:"updated_at"`
+	ID          string `json:"id"`
+	CategoryID  string `json:"category_id"`
+	CountryID   string `json:"country_id"`
+	Name        string `json:"name"`
+	ShortName   string `json:"short_name"`
+	Logo        string `json:"logo"`
+	CurSeasonID string `json:"cur_season_id"`
+	UID         string `json:"uid"`
+	UpdatedAt   int64  `json:"updated_at"`
 }
 
 // BaseballTeamResponseData 棒球球隊資料
@@ -69,23 +69,23 @@ type BaseballPlayerSchool struct {
 
 // BaseballPlayerResponseData 棒球球員資料
 type BaseballPlayerResponseData struct {
-	ID               string                       `json:"id"`
-	CountryID        string                       `json:"country_id"`
-	Name             string                       `json:"name"`
-	ShortName        string                       `json:"short_name"`
-	Logo             string                       `json:"logo"`
-	Birthday         int64                        `json:"birthday"`
-	UID              string                       `json:"uid"`
-	Type             int                          `json:"type"`
-	Height           int                          `json:"height"`
-	Weight           int                          `json:"weight"`
-	Position         string                       `json:"position"`
-	Drafted          *BaseballPlayerDrafted       `json:"drafted"`
-	PreferredHand    *BaseballPlayerPreferredHand `json:"preferred_hand"`
-	School           *BaseballPlayerSchool        `json:"school"`
-	Deathday         int64                        `json:"deathday"`
-	LeagueCareerAge  int                          `json:"league_career_age"`
-	UpdatedAt        int64                        `json:"updated_at"`
+	ID              string                       `json:"id"`
+	CountryID       string                       `json:"country_id"`
+	Name            string                       `json:"name"`
+	ShortName       string                       `json:"short_name"`
+	Logo            string                       `json:"logo"`
+	Birthday        int64                        `json:"birthday"`
+	UID             string                       `json:"uid"`
+	Type            int                          `json:"type"`
+	Height          int                          `json:"height"`
+	Weight          int                          `json:"weight"`
+	Position        string                       `json:"position"`
+	Drafted         *BaseballPlayerDrafted       `json:"drafted"`
+	PreferredHand   *BaseballPlayerPreferredHand `json:"preferred_hand"`
+	School          *BaseballPlayerSchool        `json:"school"`
+	Deathday        int64                        `json:"deathday"`
+	LeagueCareerAge int                          `json:"league_career_age"`
+	UpdatedAt       int64                        `json:"updated_at"`
 }
 
 // BaseballVenueResponseData 棒球場館資料
@@ -112,11 +112,11 @@ type BaseballCoverage struct {
 
 // BaseballWeather 棒球比賽天氣資訊
 type BaseballWeather struct {
-	Desc      string `json:"desc"`
-	Temp      int    `json:"temp"`
-	Wind      int    `json:"wind"`
-	Humidity  int    `json:"humidity"`
-	Pressure  int    `json:"pressure"`
+	Desc     string `json:"desc"`
+	Temp     int    `json:"temp"`
+	Wind     int    `json:"wind"`
+	Humidity int    `json:"humidity"`
+	Pressure int    `json:"pressure"`
 }
 
 // BaseballMatchResponseData 棒球比賽列表資料（match/list, match/season 共用）
@@ -219,16 +219,16 @@ type BaseballSeasonPlayerStatsResultData struct {
 
 // BaseballSeasonCoachStatsResultData 棒球賽季教練統計資料
 type BaseballSeasonCoachStatsResultData struct {
-	CoachID          string `json:"coach_id"`
-	TeamID           string `json:"team_id"`
-	Type             int    `json:"type"`
-	RegularMatches   int    `json:"regular_matches"`
-	RegularWin       int    `json:"regular_win"`
-	RegularDeuce     int    `json:"regular_deuce"`
-	RegularLose      int    `json:"regular_lose"`
-	PlayoffsMatches  int    `json:"playoffs_matches"`
-	PlayoffsWin      int    `json:"playoffs_win"`
-	PlayoffsLose     int    `json:"playoffs_lose"`
+	CoachID         string `json:"coach_id"`
+	TeamID          string `json:"team_id"`
+	Type            int    `json:"type"`
+	RegularMatches  int    `json:"regular_matches"`
+	RegularWin      int    `json:"regular_win"`
+	RegularDeuce    int    `json:"regular_deuce"`
+	RegularLose     int    `json:"regular_lose"`
+	PlayoffsMatches int    `json:"playoffs_matches"`
+	PlayoffsWin     int    `json:"playoffs_win"`
+	PlayoffsLose    int    `json:"playoffs_lose"`
 }
 
 // BaseballTeamSquadPlayer 棒球球隊陣容球員
@@ -257,17 +257,17 @@ type BaseballTeamInjuryPlayer struct {
 
 // BaseballTeamInjuryResponseData 棒球球隊傷病資料
 type BaseballTeamInjuryResponseData struct {
-	ID        string                      `json:"id"`
-	Injury    []BaseballTeamInjuryPlayer  `json:"injury"`
-	UpdatedAt int64                       `json:"updated_at"`
+	ID        string                     `json:"id"`
+	Injury    []BaseballTeamInjuryPlayer `json:"injury"`
+	UpdatedAt int64                      `json:"updated_at"`
 }
 
 // BaseballHonorItem 棒球榮譽項目
 type BaseballHonorItem struct {
-	HonorID             string `json:"honor_id"`
-	Season              string `json:"season"`
-	SeasonID            string `json:"season_id"`
-	UniqueTournamentID  string `json:"unique_tournament_id"`
+	HonorID            string `json:"honor_id"`
+	Season             string `json:"season"`
+	SeasonID           string `json:"season_id"`
+	UniqueTournamentID string `json:"unique_tournament_id"`
 }
 
 // BaseballPlayerHonorItem 棒球球員榮譽項目（含 team_id）
@@ -291,16 +291,16 @@ type BaseballTeamHonorResponseData struct {
 
 // BaseballPlayerHonorResponseData 棒球球員榮譽資料
 type BaseballPlayerHonorResponseData struct {
-	ID        string                  `json:"id"`
+	ID        string                    `json:"id"`
 	Honor     []BaseballPlayerHonorItem `json:"honor"`
-	UpdatedAt int64                   `json:"updated_at"`
+	UpdatedAt int64                     `json:"updated_at"`
 }
 
 // BaseballCoachHonorResponseData 棒球教練榮譽資料
 type BaseballCoachHonorResponseData struct {
-	ID        string                  `json:"id"`
+	ID        string                   `json:"id"`
 	Honor     []BaseballCoachHonorItem `json:"honor"`
-	UpdatedAt int64                   `json:"updated_at"`
+	UpdatedAt int64                    `json:"updated_at"`
 }
 
 // BaseballHonorResponseData 棒球榮譽列表資料
@@ -345,28 +345,28 @@ type BaseballBracketRound struct {
 
 // BaseballBracketMatchUp 棒球對戰圖對戰組合
 type BaseballBracketMatchUp struct {
-	ID            string   `json:"id"`
-	RoundID       string   `json:"round_id"`
-	Number        int      `json:"number"`
-	TypeID        int      `json:"type_id"`
-	StateID       int      `json:"state_id"`
-	HomeTeamID    string   `json:"home_team_id"`
-	AwayTeamID    string   `json:"away_team_id"`
-	WinnerTeamID  string   `json:"winner_team_id"`
-	HomeScore     int      `json:"home_score"`
-	AwayScore     int      `json:"away_score"`
-	ParentIDs     []string `json:"parent_ids"`
-	ChildrenIDs   []string `json:"children_ids"`
-	MatchIDs      []string `json:"match_ids"`
-	Note          string   `json:"note"`
+	ID           string   `json:"id"`
+	RoundID      string   `json:"round_id"`
+	Number       int      `json:"number"`
+	TypeID       int      `json:"type_id"`
+	StateID      int      `json:"state_id"`
+	HomeTeamID   string   `json:"home_team_id"`
+	AwayTeamID   string   `json:"away_team_id"`
+	WinnerTeamID string   `json:"winner_team_id"`
+	HomeScore    int      `json:"home_score"`
+	AwayScore    int      `json:"away_score"`
+	ParentIDs    []string `json:"parent_ids"`
+	ChildrenIDs  []string `json:"children_ids"`
+	MatchIDs     []string `json:"match_ids"`
+	Note         string   `json:"note"`
 }
 
 // BaseballBracketSeasonResultData 棒球對戰圖回應資料
 type BaseballBracketSeasonResultData struct {
-	Brackets []BaseballBracket         `json:"brackets"`
-	Groups   []BaseballBracketGroup    `json:"groups"`
-	Rounds   []BaseballBracketRound    `json:"rounds"`
-	MatchUps []BaseballBracketMatchUp  `json:"match_ups"`
+	Brackets []BaseballBracket        `json:"brackets"`
+	Groups   []BaseballBracketGroup   `json:"groups"`
+	Rounds   []BaseballBracketRound   `json:"rounds"`
+	MatchUps []BaseballBracketMatchUp `json:"match_ups"`
 }
 
 // BaseballDataUpdateItem 棒球資料更新項目

@@ -64,58 +64,6 @@ const (
 	basketballSeasonRecentTableDetailNewPath = "/basketball/season/recent/table/detail/new"
 )
 
-//	===  資料庫數據端點  ===
-
-const (
-	// 完整比賽列表（全量數據）
-	basketballMatchListPath = "/basketball/match/list"
-	// 賽程與結果 - 賽季查詢（全賽季）
-	basketballMatchSeasonPath = "/basketball/match/season"
-	// 賽季排名（全賽季）
-	basketballSeasonTableDetailPath = "/basketball/season/table/detail"
-	// 賽季排名含升降級（全賽季）
-	basketballSeasonTableDetailNewPath = "/basketball/season/table/detail/new"
-	// 榮譽列表
-	basketballHonorListPath = "/basketball/honor/list"
-	// 球員榮譽
-	basketballPlayerHonorListPath = "/basketball/player/honor/list"
-	// 球隊榮譽
-	basketballTeamAllHonorListPath = "/basketball/team/all/honor/list"
-	// 球員生涯
-	basketballPlayerCareerListPath = "/basketball/player/career/list"
-	// 教練榮譽
-	basketballCoachHonorListPath = "/basketball/coach/honor/list"
-)
-
-//	===  進階數據端點  ===
-
-const (
-	// 賽季球隊統計（最新賽季）
-	basketballSeasonRecentTeamStatsPath = "/basketball/season/recent/team/stats"
-	// 賽季球隊統計（全賽季）
-	basketballSeasonTeamStatsPath = "/basketball/season/team/stats"
-	// 賽季球員統計（最新賽季）
-	basketballSeasonRecentPlayerStatsPath = "/basketball/season/recent/player/stats"
-	// 賽季球員統計（全賽季）
-	basketballSeasonPlayerStatsPath = "/basketball/season/player/stats"
-	// 球隊陣容
-	basketballTeamSquadListPath = "/basketball/team/squad/list"
-	// 球隊傷病
-	basketballTeamInjuryListPath = "/basketball/team/injury/list"
-	// 對陣圖
-	basketballBracketSeasonPath = "/basketball/bracket/season"
-	// FIBA 男子排名
-	basketballRankingFibaMenPath = "/basketball/ranking/fiba/men"
-	// FIBA 女子排名
-	basketballRankingFibaWomenPath = "/basketball/ranking/fiba/women"
-	// 球員轉會
-	basketballPlayerTransferListPath = "/basketball/player/transfer/list"
-	// 教練執教履歷
-	basketballCoachHistoryListPath = "/basketball/coach/history/list"
-	// 球員能力值
-	basketballPlayerAbilityListPath = "/basketball/player/ability/list"
-)
-
 //	===  其他端點  ===
 
 const (

@@ -13,15 +13,15 @@ const (
 	baseballSeasonPath           = "/baseball/season/list"            // 賽季
 
 	// 比賽資料
-	baseballMatchListPath       = "/baseball/match/list"        // 比賽列表
-	baseballMatchDetailLivePath = "/baseball/match/detail_live" // 即時比賽詳情（原 match/detail）
-	baseballMatchDiaryPath      = "/baseball/match/diary"       // 賽程與結果-日期查詢（新增）
-	baseballMatchSeasonPath     = "/baseball/match/season"      // 賽程與結果-賽季查詢（新增）
+	baseballMatchListPath        = "/baseball/match/list"         // 比賽列表
+	baseballMatchDetailLivePath  = "/baseball/match/detail_live"  // 即時比賽詳情（原 match/detail）
+	baseballMatchDiaryPath       = "/baseball/match/diary"        // 賽程與結果-日期查詢（新增）
+	baseballMatchSeasonPath      = "/baseball/match/season"       // 賽程與結果-賽季查詢（新增）
 	baseballMatchLiveHistoryPath = "/baseball/match/live/history" // 歷史比賽統計（新增）
 
 	// 排名與統計
-	baseballSeasonTablePath       = "/baseball/season/table/detail"       // 賽季排名（原 standings/list）
-	baseballSeasonTeamStatsPath   = "/baseball/season/team/stats/detail"  // 賽季球隊統計（新增）
+	baseballSeasonTablePath       = "/baseball/season/table/detail"        // 賽季排名（原 standings/list）
+	baseballSeasonTeamStatsPath   = "/baseball/season/team/stats/detail"   // 賽季球隊統計（新增）
 	baseballSeasonPlayerStatsPath = "/baseball/season/player/stats/detail" // 賽季球員統計（新增）
 	baseballSeasonCoachStatsPath  = "/baseball/season/coach/stats/detail"  // 賽季教練統計（新增）
 

@@ -127,59 +127,59 @@ type CsgoMatchDiaryResultsExtra struct {
 
 // CsgoMatchDiaryResponse 賽程日誌完整回應（含 results_extra）
 type CsgoMatchDiaryResponse struct {
-	Code         int                          `json:"code"`
-	Results      []CsgoMatchResponseData      `json:"results"`
-	ResultsExtra CsgoMatchDiaryResultsExtra   `json:"results_extra"`
-	Err          *string                      `json:"err,omitempty"`
-	Msg          *string                      `json:"msg,omitempty"`
+	Code         int                        `json:"code"`
+	Results      []CsgoMatchResponseData    `json:"results"`
+	ResultsExtra CsgoMatchDiaryResultsExtra `json:"results_extra"`
+	Err          *string                    `json:"err,omitempty"`
+	Msg          *string                    `json:"msg,omitempty"`
 }
 
 // ——— CS:GO 單場比賽 ———
 
 // CsgoSingleMatchResponseData CS:GO 單場比賽回應資料
 type CsgoSingleMatchResponseData struct {
-	ID          string          `json:"id"`
-	MatchID     string          `json:"match_id"`
-	BoxNum      int             `json:"box_num"`
-	MapID       string          `json:"map_id"`
-	StatusID    int             `json:"status_id"`
-	MatchTime   int64           `json:"match_time"`
-	HomeTeamID  string          `json:"home_team_id"`
-	HomeScore   int             `json:"home_score"`
-	AwayTeamID  string          `json:"away_team_id"`
-	AwayScore   int             `json:"away_score"`
-	Score       json.RawMessage `json:"score"`
-	Result      json.RawMessage `json:"result"`
-	OverResult  json.RawMessage `json:"over_result"`
-	Rating      json.RawMessage `json:"rating"`
-	UpdatedAt   int64           `json:"updated_at"`
+	ID         string          `json:"id"`
+	MatchID    string          `json:"match_id"`
+	BoxNum     int             `json:"box_num"`
+	MapID      string          `json:"map_id"`
+	StatusID   int             `json:"status_id"`
+	MatchTime  int64           `json:"match_time"`
+	HomeTeamID string          `json:"home_team_id"`
+	HomeScore  int             `json:"home_score"`
+	AwayTeamID string          `json:"away_team_id"`
+	AwayScore  int             `json:"away_score"`
+	Score      json.RawMessage `json:"score"`
+	Result     json.RawMessage `json:"result"`
+	OverResult json.RawMessage `json:"over_result"`
+	Rating     json.RawMessage `json:"rating"`
+	UpdatedAt  int64           `json:"updated_at"`
 }
 
 // ——— CS:GO 單場選手統計 ———
 
 // CsgoSingleMatchPlayerStatResponseData CS:GO 單場選手統計回應資料
 type CsgoSingleMatchPlayerStatResponseData struct {
-	ID             string          `json:"id"`
-	MatchSingleID  string          `json:"match_single_id"`
-	TeamID         string          `json:"team_id"`
-	PlayerID       string          `json:"player_id"`
-	Kill           int             `json:"kill"`
-	Death          int             `json:"death"`
-	Hs             int             `json:"hs"`
-	Assists        int             `json:"assists"`
-	FAssists       int             `json:"f_assists"`
-	Kast           string          `json:"kast"`
-	Adr            float64         `json:"adr"`
-	KfDiff         string          `json:"kf_diff"`
-	AwpKill        int             `json:"awp_kill"`
-	FirstKill      int             `json:"first_kill"`
-	Impact         float64         `json:"impact"`
-	Mks            int             `json:"mks"`
-	Onevsx         int             `json:"onevsx"`
-	Swing          string          `json:"swing"`
-	Rating         float64         `json:"rating"`
-	WeaponsKill    json.RawMessage `json:"weapons_kill"`
-	UpdatedAt      int64           `json:"updated_at"`
+	ID            string          `json:"id"`
+	MatchSingleID string          `json:"match_single_id"`
+	TeamID        string          `json:"team_id"`
+	PlayerID      string          `json:"player_id"`
+	Kill          int             `json:"kill"`
+	Death         int             `json:"death"`
+	Hs            int             `json:"hs"`
+	Assists       int             `json:"assists"`
+	FAssists      int             `json:"f_assists"`
+	Kast          string          `json:"kast"`
+	Adr           float64         `json:"adr"`
+	KfDiff        string          `json:"kf_diff"`
+	AwpKill       int             `json:"awp_kill"`
+	FirstKill     int             `json:"first_kill"`
+	Impact        float64         `json:"impact"`
+	Mks           int             `json:"mks"`
+	Onevsx        int             `json:"onevsx"`
+	Swing         string          `json:"swing"`
+	Rating        float64         `json:"rating"`
+	WeaponsKill   json.RawMessage `json:"weapons_kill"`
+	UpdatedAt     int64           `json:"updated_at"`
 }
 
 // ——— CS:GO 即時數據 ———
@@ -194,16 +194,16 @@ type CsgoDetailLivePlayer struct {
 
 // CsgoDetailLiveSide CS:GO 即時數據單邊資料
 type CsgoDetailLiveSide struct {
-	ID       string                  `json:"id"`
-	Side     int                     `json:"side"`
-	Score    int                     `json:"score"`
-	Stats    json.RawMessage         `json:"stats"`
-	WinIcon  json.RawMessage         `json:"win_icon"`
-	Players  []CsgoDetailLivePlayer  `json:"players"`
-	FhScore  int                     `json:"fh_score"`
-	ShScore  int                     `json:"sh_score"`
-	MScore   int                     `json:"m_score"`
-	CScore   int                     `json:"c_score"`
+	ID      string                 `json:"id"`
+	Side    int                    `json:"side"`
+	Score   int                    `json:"score"`
+	Stats   json.RawMessage        `json:"stats"`
+	WinIcon json.RawMessage        `json:"win_icon"`
+	Players []CsgoDetailLivePlayer `json:"players"`
+	FhScore int                    `json:"fh_score"`
+	ShScore int                    `json:"sh_score"`
+	MScore  int                    `json:"m_score"`
+	CScore  int                    `json:"c_score"`
 }
 
 // CsgoDetailLiveEvent CS:GO 即時事件資料
@@ -233,16 +233,16 @@ type CsgoDetailLiveEvent struct {
 
 // CsgoDetailLiveResponseData CS:GO 即時數據回應資料
 type CsgoDetailLiveResponseData struct {
-	MatchID         string                  `json:"match_id"`
-	BoxNum          int                     `json:"box_num"`
-	StatusID        int                     `json:"status_id"`
-	SingleStatusID  int                     `json:"single_status_id"`
-	MapID           string                  `json:"map_id"`
-	RoundNum        int                     `json:"round_num"`
-	Timer           json.RawMessage         `json:"timer"`
-	Home            CsgoDetailLiveSide      `json:"home"`
-	Away            CsgoDetailLiveSide      `json:"away"`
-	Event           []CsgoDetailLiveEvent   `json:"event"`
+	MatchID        string                `json:"match_id"`
+	BoxNum         int                   `json:"box_num"`
+	StatusID       int                   `json:"status_id"`
+	SingleStatusID int                   `json:"single_status_id"`
+	MapID          string                `json:"map_id"`
+	RoundNum       int                   `json:"round_num"`
+	Timer          json.RawMessage       `json:"timer"`
+	Home           CsgoDetailLiveSide    `json:"home"`
+	Away           CsgoDetailLiveSide    `json:"away"`
+	Event          []CsgoDetailLiveEvent `json:"event"`
 }
 
 // ——— CS:GO 刪除 ———
@@ -335,35 +335,35 @@ type CsgoTournamentRoundResponseData struct {
 
 // CsgoTournamentBracketResponseData CS:GO 賽事對戰表回應資料
 type CsgoTournamentBracketResponseData struct {
-	ID             string `json:"id"`
-	TournamentID   string `json:"tournament_id"`
-	StageID        string `json:"stage_id"`
-	PartStageID    string `json:"part_stage_id"`
-	RoundID        string `json:"round_id"`
-	MatchID        string `json:"match_id"`
-	MatchTime      int64  `json:"match_time"`
-	HomeTeamID     string `json:"home_team_id"`
-	AwayTeamID     string `json:"away_team_id"`
-	HomeScore      int    `json:"home_score"`
-	AwayScore      int    `json:"away_score"`
-	Round          int    `json:"round"`
-	Sequence       int    `json:"sequence"`
-	SequenceType   int    `json:"sequence_type"`
-	IsPromotion    int    `json:"is_promotion"`
-	Num            int    `json:"num"`
-	UpdatedAt      int64  `json:"updated_at"`
+	ID           string `json:"id"`
+	TournamentID string `json:"tournament_id"`
+	StageID      string `json:"stage_id"`
+	PartStageID  string `json:"part_stage_id"`
+	RoundID      string `json:"round_id"`
+	MatchID      string `json:"match_id"`
+	MatchTime    int64  `json:"match_time"`
+	HomeTeamID   string `json:"home_team_id"`
+	AwayTeamID   string `json:"away_team_id"`
+	HomeScore    int    `json:"home_score"`
+	AwayScore    int    `json:"away_score"`
+	Round        int    `json:"round"`
+	Sequence     int    `json:"sequence"`
+	SequenceType int    `json:"sequence_type"`
+	IsPromotion  int    `json:"is_promotion"`
+	Num          int    `json:"num"`
+	UpdatedAt    int64  `json:"updated_at"`
 }
 
 // ——— CS:GO 賽事對戰表連線 ———
 
 // CsgoTournamentBracketLineResponseData CS:GO 賽事對戰表連線回應資料
 type CsgoTournamentBracketLineResponseData struct {
-	ID             string          `json:"id"`
-	TournamentID   string          `json:"tournament_id"`
-	StageID        string          `json:"stage_id"`
-	PartStageID    string          `json:"part_stage_id"`
-	Lines          json.RawMessage `json:"lines"`
-	UpdatedAt      int64           `json:"updated_at"`
+	ID           string          `json:"id"`
+	TournamentID string          `json:"tournament_id"`
+	StageID      string          `json:"stage_id"`
+	PartStageID  string          `json:"part_stage_id"`
+	Lines        json.RawMessage `json:"lines"`
+	UpdatedAt    int64           `json:"updated_at"`
 }
 
 // ——— CS:GO 賽事積分表 ———
@@ -376,18 +376,18 @@ type CsgoTournamentTableGroup struct {
 
 // CsgoTournamentTableResponseData CS:GO 賽事積分表回應資料
 type CsgoTournamentTableResponseData struct {
-	ID           string                    `json:"id"`
-	TournamentID string                    `json:"tournament_id"`
-	StageID      string                    `json:"stage_id"`
-	TeamID       string                    `json:"team_id"`
-	Group        CsgoTournamentTableGroup  `json:"group"`
-	Win          int                       `json:"win"`
-	Lose         int                       `json:"lose"`
-	Equal        int                       `json:"equal"`
-	Score        int                       `json:"score"`
-	RoundSub     string                    `json:"round_sub"`
-	Position     int                       `json:"position"`
-	UpdatedAt    int64                     `json:"updated_at"`
+	ID           string                   `json:"id"`
+	TournamentID string                   `json:"tournament_id"`
+	StageID      string                   `json:"stage_id"`
+	TeamID       string                   `json:"team_id"`
+	Group        CsgoTournamentTableGroup `json:"group"`
+	Win          int                      `json:"win"`
+	Lose         int                      `json:"lose"`
+	Equal        int                      `json:"equal"`
+	Score        int                      `json:"score"`
+	RoundSub     string                   `json:"round_sub"`
+	Position     int                      `json:"position"`
+	UpdatedAt    int64                    `json:"updated_at"`
 }
 
 // ——— CS:GO 賠率 ———
@@ -406,14 +406,14 @@ type CsgoOddsHistoryBox struct {
 
 // CsgoOddsHistoryPlay CS:GO 賠率歷史玩法資料
 type CsgoOddsHistoryPlay struct {
-	PlayID int                    `json:"play_id"`
-	Boxes  []CsgoOddsHistoryBox   `json:"boxes"`
+	PlayID int                  `json:"play_id"`
+	Boxes  []CsgoOddsHistoryBox `json:"boxes"`
 }
 
 // CsgoOddsHistoryResponseData CS:GO 賠率歷史回應資料
 type CsgoOddsHistoryResponseData struct {
-	PlatformID int                       `json:"platform_id"`
-	Plays      []CsgoOddsHistoryPlay     `json:"plays"`
+	PlatformID int                   `json:"platform_id"`
+	Plays      []CsgoOddsHistoryPlay `json:"plays"`
 }
 
 // ——— Dota2 基本資料 ———
