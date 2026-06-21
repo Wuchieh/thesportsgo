@@ -12,7 +12,7 @@ import (
 type CsgoListQuery struct {
 	Page *int    `json:"page,omitempty"`
 	Time *int    `json:"time,omitempty"`
-	UUID *string `json:"uuid,omitempty"`
+	UUID string `json:"uuid"`
 }
 
 // ——— CS:GO 國家/地區 ———
@@ -107,7 +107,7 @@ func (c *Client) CsgoMatchDiary(ctx context.Context, query CsgoMatchDiaryQuery) 
 
 // CsgoMatchTournamentQuery CS:GO 賽程依賽事查詢參數
 type CsgoMatchTournamentQuery struct {
-	UUID *string `json:"uuid,omitempty"`
+	UUID string `json:"uuid"`
 }
 
 // CsgoMatchTournament 取得 CS:GO 賽程與結果（依賽事查詢）
@@ -179,7 +179,7 @@ func (c *Client) CsgoPlayerStat(ctx context.Context, query CsgoListQuery) (*Csgo
 
 // CsgoTournamentStatQuery CS:GO 賽事統計查詢參數
 type CsgoTournamentStatQuery struct {
-	UUID *string `json:"uuid,omitempty"`
+	UUID string `json:"uuid"`
 }
 
 // CsgoTournamentStatResponse CS:GO 賽事統計回應型別
@@ -252,7 +252,7 @@ func (c *Client) CsgoOddsLive(ctx context.Context) (*CsgoOddsLiveResponse, error
 
 // CsgoOddsHistoryQuery CS:GO 賠率歷史查詢參數
 type CsgoOddsHistoryQuery struct {
-	UUID *string `json:"uuid,omitempty"`
+	UUID string `json:"uuid"`
 }
 
 // CsgoOddsHistoryResponse CS:GO 賠率歷史回應型別
