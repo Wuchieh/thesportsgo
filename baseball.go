@@ -121,7 +121,7 @@ func (c *Client) BaseballMatchDetailLive(ctx context.Context) (*BaseballMatchDet
 
 // BaseballMatchDiaryQuery 棒球比賽日程查詢參數
 type BaseballMatchDiaryQuery struct {
-	TSP *int `json:"tsp,omitempty"`
+	TSP int `json:"tsp"`
 }
 
 // BaseballMatchDiaryResponse 棒球比賽日程回應
