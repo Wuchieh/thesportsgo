@@ -2,6 +2,7 @@ package thesportsgo
 
 import (
 	"context"
+	"encoding/json"
 )
 
 // BaseballCategoryResponse 棒球分類回應
@@ -20,26 +21,26 @@ func (c *Client) BaseballCountry(ctx context.Context) (*BaseballCountryResponse,
 	return secretGet[BaseballCountryResponse](ctx, c, baseballCountryPath)
 }
 
-// BaseballCompetitionQuery 棒球賽事查詢參數
-type BaseballCompetitionQuery struct {
+// BaseballUniqueTournamentQuery 棒球賽事查詢參數
+type BaseballUniqueTournamentQuery struct {
+	UUID *string `json:"uuid,omitempty"`
 	Page *int    `json:"page,omitempty"`
 	Time *int    `json:"time,omitempty"`
-	UUID *string `json:"uuid,omitempty"`
 }
 
-// BaseballCompetitionResponse 棒球賽事回應
-type BaseballCompetitionResponse = Response[[]BaseballCompetitionResponseData]
+// BaseballUniqueTournamentResponse 棒球賽事回應
+type BaseballUniqueTournamentResponse = Response[[]BaseballUniqueTournamentResponseData]
 
-// BaseballCompetition 取得棒球賽事
-func (c *Client) BaseballCompetition(ctx context.Context, query BaseballCompetitionQuery) (*BaseballCompetitionResponse, error) {
-	return secretGet[BaseballCompetitionResponse](ctx, c, baseballCompetitionPath, toQuery(query))
+// BaseballUniqueTournament 取得棒球賽事
+func (c *Client) BaseballUniqueTournament(ctx context.Context, query BaseballUniqueTournamentQuery) (*BaseballUniqueTournamentResponse, error) {
+	return secretGet[BaseballUniqueTournamentResponse](ctx, c, baseballUniqueTournamentPath, toQuery(query))
 }
 
 // BaseballTeamQuery 棒球球隊查詢參數
 type BaseballTeamQuery struct {
+	UUID *string `json:"uuid,omitempty"`
 	Page *int    `json:"page,omitempty"`
 	Time *int    `json:"time,omitempty"`
-	UUID *string `json:"uuid,omitempty"`
 }
 
 // BaseballTeamResponse 棒球球隊回應
@@ -52,9 +53,9 @@ func (c *Client) BaseballTeam(ctx context.Context, query BaseballTeamQuery) (*Ba
 
 // BaseballPlayerQuery 棒球球員查詢參數
 type BaseballPlayerQuery struct {
+	UUID *string `json:"uuid,omitempty"`
 	Page *int    `json:"page,omitempty"`
 	Time *int    `json:"time,omitempty"`
-	UUID *string `json:"uuid,omitempty"`
 }
 
 // BaseballPlayerResponse 棒球球員回應
@@ -65,41 +66,11 @@ func (c *Client) BaseballPlayer(ctx context.Context, query BaseballPlayerQuery) 
 	return secretGet[BaseballPlayerResponse](ctx, c, baseballPlayerPath, toQuery(query))
 }
 
-// BaseballCoachQuery 棒球教練查詢參數
-type BaseballCoachQuery struct {
-	Page *int    `json:"page,omitempty"`
-	Time *int    `json:"time,omitempty"`
-	UUID *string `json:"uuid,omitempty"`
-}
-
-// BaseballCoachResponse 棒球教練回應
-type BaseballCoachResponse = Response[[]BaseballCoachResponseData]
-
-// BaseballCoach 取得棒球教練
-func (c *Client) BaseballCoach(ctx context.Context, query BaseballCoachQuery) (*BaseballCoachResponse, error) {
-	return secretGet[BaseballCoachResponse](ctx, c, baseballCoachPath, toQuery(query))
-}
-
-// BaseballRefereeQuery 棒球裁判查詢參數
-type BaseballRefereeQuery struct {
-	Page *int    `json:"page,omitempty"`
-	Time *int    `json:"time,omitempty"`
-	UUID *string `json:"uuid,omitempty"`
-}
-
-// BaseballRefereeResponse 棒球裁判回應
-type BaseballRefereeResponse = Response[[]BaseballRefereeResponseData]
-
-// BaseballReferee 取得棒球裁判
-func (c *Client) BaseballReferee(ctx context.Context, query BaseballRefereeQuery) (*BaseballRefereeResponse, error) {
-	return secretGet[BaseballRefereeResponse](ctx, c, baseballRefereePath, toQuery(query))
-}
-
 // BaseballVenueQuery 棒球場館查詢參數
 type BaseballVenueQuery struct {
+	UUID *string `json:"uuid,omitempty"`
 	Page *int    `json:"page,omitempty"`
 	Time *int    `json:"time,omitempty"`
-	UUID *string `json:"uuid,omitempty"`
 }
 
 // BaseballVenueResponse 棒球場館回應
@@ -112,9 +83,9 @@ func (c *Client) BaseballVenue(ctx context.Context, query BaseballVenueQuery) (*
 
 // BaseballSeasonQuery 棒球賽季查詢參數
 type BaseballSeasonQuery struct {
+	UUID *string `json:"uuid,omitempty"`
 	Page *int    `json:"page,omitempty"`
 	Time *int    `json:"time,omitempty"`
-	UUID *string `json:"uuid,omitempty"`
 }
 
 // BaseballSeasonResponse 棒球賽季回應
@@ -125,28 +96,11 @@ func (c *Client) BaseballSeason(ctx context.Context, query BaseballSeasonQuery) 
 	return secretGet[BaseballSeasonResponse](ctx, c, baseballSeasonPath, toQuery(query))
 }
 
-// BaseballStageQuery 棒球階段查詢參數
-type BaseballStageQuery struct {
-	Page *int    `json:"page,omitempty"`
-	Time *int    `json:"time,omitempty"`
-	UUID *string `json:"uuid,omitempty"`
-}
-
-// BaseballStageResponse 棒球階段回應
-type BaseballStageResponse = Response[[]BaseballStageResponseData]
-
-// BaseballStage 取得棒球階段
-func (c *Client) BaseballStage(ctx context.Context, query BaseballStageQuery) (*BaseballStageResponse, error) {
-	return secretGet[BaseballStageResponse](ctx, c, baseballStagePath, toQuery(query))
-}
-
 // BaseballMatchListQuery 棒球比賽列表查詢參數
 type BaseballMatchListQuery struct {
-	Page     *int    `json:"page,omitempty"`
-	Time     *int    `json:"time,omitempty"`
-	UUID     *string `json:"uuid,omitempty"`
-	SeasonID *string `json:"season_id,omitempty"`
-	StageID  *string `json:"stage_id,omitempty"`
+	UUID *string `json:"uuid,omitempty"`
+	Page *int    `json:"page,omitempty"`
+	Time *int    `json:"time,omitempty"`
 }
 
 // BaseballMatchListResponse 棒球比賽列表回應
@@ -157,31 +111,241 @@ func (c *Client) BaseballMatchList(ctx context.Context, query BaseballMatchListQ
 	return secretGet[BaseballMatchListResponse](ctx, c, baseballMatchListPath, toQuery(query))
 }
 
-// BaseballMatchDetailQuery 棒球比賽詳情查詢參數
-type BaseballMatchDetailQuery struct {
+// BaseballMatchDetailLiveResponse 棒球即時比賽詳情回應
+type BaseballMatchDetailLiveResponse = Response[[]BaseballMatchDetailLiveResultData]
+
+// BaseballMatchDetailLive 取得棒球即時比賽詳情
+func (c *Client) BaseballMatchDetailLive(ctx context.Context) (*BaseballMatchDetailLiveResponse, error) {
+	return secretGet[BaseballMatchDetailLiveResponse](ctx, c, baseballMatchDetailLivePath)
+}
+
+// BaseballMatchDiaryQuery 棒球比賽日程查詢參數
+type BaseballMatchDiaryQuery struct {
+	TSP *int `json:"tsp,omitempty"`
+}
+
+// BaseballMatchDiaryResponse 棒球比賽日程回應
+type BaseballMatchDiaryResponse = Response[[]BaseballMatchResponseData]
+
+// BaseballMatchDiary 取得棒球比賽日程（日期查詢）
+func (c *Client) BaseballMatchDiary(ctx context.Context, query BaseballMatchDiaryQuery) (*BaseballMatchDiaryResponse, error) {
+	return secretGet[BaseballMatchDiaryResponse](ctx, c, baseballMatchDiaryPath, toQuery(query))
+}
+
+// BaseballMatchSeasonQuery 棒球比賽賽季查詢參數
+type BaseballMatchSeasonQuery struct {
 	UUID *string `json:"uuid,omitempty"`
 }
 
-// BaseballMatchDetailResponse 棒球比賽詳情回應
-type BaseballMatchDetailResponse = Response[[]BaseballMatchDetailResponseData]
+// BaseballMatchSeasonResponse 棒球比賽賽季回應
+type BaseballMatchSeasonResponse = Response[[]BaseballMatchResponseData]
 
-// BaseballMatchDetail 取得棒球比賽詳情
-func (c *Client) BaseballMatchDetail(ctx context.Context, query BaseballMatchDetailQuery) (*BaseballMatchDetailResponse, error) {
-	return secretGet[BaseballMatchDetailResponse](ctx, c, baseballMatchDetailPath, toQuery(query))
+// BaseballMatchSeason 取得棒球比賽賽季（賽季查詢）
+func (c *Client) BaseballMatchSeason(ctx context.Context, query BaseballMatchSeasonQuery) (*BaseballMatchSeasonResponse, error) {
+	return secretGet[BaseballMatchSeasonResponse](ctx, c, baseballMatchSeasonPath, toQuery(query))
 }
 
-// BaseballStandingsQuery 棒球排名查詢參數
-type BaseballStandingsQuery struct {
-	UUID          *string `json:"uuid,omitempty"`
-	CompetitionID *string `json:"competition_id,omitempty"`
-	SeasonID      *string `json:"season_id,omitempty"`
-	StageID       *string `json:"stage_id,omitempty"`
+// BaseballMatchLiveHistoryQuery 棒球歷史比賽統計查詢參數
+type BaseballMatchLiveHistoryQuery struct {
+	UUID *string `json:"uuid,omitempty"`
 }
 
-// BaseballStandingsResponse 棒球排名回應
-type BaseballStandingsResponse = Response[[]BaseballStandingsResponseData]
+// BaseballMatchLiveHistoryResponse 棒球歷史比賽統計回應
+type BaseballMatchLiveHistoryResponse = Response[BaseballMatchLiveHistoryResultData]
 
-// BaseballStandings 取得棒球排名
-func (c *Client) BaseballStandings(ctx context.Context, query BaseballStandingsQuery) (*BaseballStandingsResponse, error) {
-	return secretGet[BaseballStandingsResponse](ctx, c, baseballStandingsPath, toQuery(query))
+// BaseballMatchLiveHistory 取得棒球歷史比賽統計
+func (c *Client) BaseballMatchLiveHistory(ctx context.Context, query BaseballMatchLiveHistoryQuery) (*BaseballMatchLiveHistoryResponse, error) {
+	return secretGet[BaseballMatchLiveHistoryResponse](ctx, c, baseballMatchLiveHistoryPath, toQuery(query))
+}
+
+// BaseballSeasonTableQuery 棒球賽季排名查詢參數
+type BaseballSeasonTableQuery struct {
+	UUID *string `json:"uuid,omitempty"`
+}
+
+// BaseballSeasonTableResponse 棒球賽季排名回應
+type BaseballSeasonTableResponse = Response[BaseballSeasonTableResultData]
+
+// BaseballSeasonTable 取得棒球賽季排名
+func (c *Client) BaseballSeasonTable(ctx context.Context, query BaseballSeasonTableQuery) (*BaseballSeasonTableResponse, error) {
+	return secretGet[BaseballSeasonTableResponse](ctx, c, baseballSeasonTablePath, toQuery(query))
+}
+
+// BaseballSeasonTeamStatsQuery 棒球賽季球隊統計查詢參數
+type BaseballSeasonTeamStatsQuery struct {
+	UUID *string `json:"uuid,omitempty"`
+}
+
+// BaseballSeasonTeamStatsResponse 棒球賽季球隊統計回應
+type BaseballSeasonTeamStatsResponse = Response[[]BaseballSeasonTeamStatsResultData]
+
+// BaseballSeasonTeamStats 取得棒球賽季球隊統計
+func (c *Client) BaseballSeasonTeamStats(ctx context.Context, query BaseballSeasonTeamStatsQuery) (*BaseballSeasonTeamStatsResponse, error) {
+	return secretGet[BaseballSeasonTeamStatsResponse](ctx, c, baseballSeasonTeamStatsPath, toQuery(query))
+}
+
+// BaseballSeasonPlayerStatsQuery 棒球賽季球員統計查詢參數
+type BaseballSeasonPlayerStatsQuery struct {
+	UUID *string `json:"uuid,omitempty"`
+}
+
+// BaseballSeasonPlayerStatsResponse 棒球賽季球員統計回應
+type BaseballSeasonPlayerStatsResponse = Response[[]BaseballSeasonPlayerStatsResultData]
+
+// BaseballSeasonPlayerStats 取得棒球賽季球員統計
+func (c *Client) BaseballSeasonPlayerStats(ctx context.Context, query BaseballSeasonPlayerStatsQuery) (*BaseballSeasonPlayerStatsResponse, error) {
+	return secretGet[BaseballSeasonPlayerStatsResponse](ctx, c, baseballSeasonPlayerStatsPath, toQuery(query))
+}
+
+// BaseballSeasonCoachStatsQuery 棒球賽季教練統計查詢參數
+type BaseballSeasonCoachStatsQuery struct {
+	UUID *string `json:"uuid,omitempty"`
+}
+
+// BaseballSeasonCoachStatsResponse 棒球賽季教練統計回應
+type BaseballSeasonCoachStatsResponse = Response[[]BaseballSeasonCoachStatsResultData]
+
+// BaseballSeasonCoachStats 取得棒球賽季教練統計
+func (c *Client) BaseballSeasonCoachStats(ctx context.Context, query BaseballSeasonCoachStatsQuery) (*BaseballSeasonCoachStatsResponse, error) {
+	return secretGet[BaseballSeasonCoachStatsResponse](ctx, c, baseballSeasonCoachStatsPath, toQuery(query))
+}
+
+// BaseballTeamSquadQuery 棒球球隊陣容查詢參數
+type BaseballTeamSquadQuery struct {
+	UUID *string `json:"uuid,omitempty"`
+	Page *int    `json:"page,omitempty"`
+	Time *int    `json:"time,omitempty"`
+}
+
+// BaseballTeamSquadResponse 棒球球隊陣容回應
+type BaseballTeamSquadResponse = Response[[]BaseballTeamSquadResponseData]
+
+// BaseballTeamSquad 取得棒球球隊陣容
+func (c *Client) BaseballTeamSquad(ctx context.Context, query BaseballTeamSquadQuery) (*BaseballTeamSquadResponse, error) {
+	return secretGet[BaseballTeamSquadResponse](ctx, c, baseballTeamSquadPath, toQuery(query))
+}
+
+// BaseballTeamInjuryQuery 棒球球隊傷病查詢參數
+type BaseballTeamInjuryQuery struct {
+	UUID *string `json:"uuid,omitempty"`
+	Page *int    `json:"page,omitempty"`
+	Time *int    `json:"time,omitempty"`
+}
+
+// BaseballTeamInjuryResponse 棒球球隊傷病回應
+type BaseballTeamInjuryResponse = Response[[]BaseballTeamInjuryResponseData]
+
+// BaseballTeamInjury 取得棒球球隊傷病
+func (c *Client) BaseballTeamInjury(ctx context.Context, query BaseballTeamInjuryQuery) (*BaseballTeamInjuryResponse, error) {
+	return secretGet[BaseballTeamInjuryResponse](ctx, c, baseballTeamInjuryPath, toQuery(query))
+}
+
+// BaseballTeamHonorQuery 棒球球隊榮譽查詢參數
+type BaseballTeamHonorQuery struct {
+	UUID *string `json:"uuid,omitempty"`
+	Page *int    `json:"page,omitempty"`
+	Time *int    `json:"time,omitempty"`
+}
+
+// BaseballTeamHonorResponse 棒球球隊榮譽回應
+type BaseballTeamHonorResponse = Response[[]BaseballTeamHonorResponseData]
+
+// BaseballTeamHonor 取得棒球球隊榮譽
+func (c *Client) BaseballTeamHonor(ctx context.Context, query BaseballTeamHonorQuery) (*BaseballTeamHonorResponse, error) {
+	return secretGet[BaseballTeamHonorResponse](ctx, c, baseballTeamHonorPath, toQuery(query))
+}
+
+// BaseballPlayerHonorQuery 棒球球員榮譽查詢參數
+type BaseballPlayerHonorQuery struct {
+	UUID *string `json:"uuid,omitempty"`
+	Page *int    `json:"page,omitempty"`
+	Time *int    `json:"time,omitempty"`
+}
+
+// BaseballPlayerHonorResponse 棒球球員榮譽回應
+type BaseballPlayerHonorResponse = Response[[]BaseballPlayerHonorResponseData]
+
+// BaseballPlayerHonor 取得棒球球員榮譽
+func (c *Client) BaseballPlayerHonor(ctx context.Context, query BaseballPlayerHonorQuery) (*BaseballPlayerHonorResponse, error) {
+	return secretGet[BaseballPlayerHonorResponse](ctx, c, baseballPlayerHonorPath, toQuery(query))
+}
+
+// BaseballCoachHonorQuery 棒球教練榮譽查詢參數
+type BaseballCoachHonorQuery struct {
+	UUID *string `json:"uuid,omitempty"`
+	Page *int    `json:"page,omitempty"`
+	Time *int    `json:"time,omitempty"`
+}
+
+// BaseballCoachHonorResponse 棒球教練榮譽回應
+type BaseballCoachHonorResponse = Response[[]BaseballCoachHonorResponseData]
+
+// BaseballCoachHonor 取得棒球教練榮譽
+func (c *Client) BaseballCoachHonor(ctx context.Context, query BaseballCoachHonorQuery) (*BaseballCoachHonorResponse, error) {
+	return secretGet[BaseballCoachHonorResponse](ctx, c, baseballCoachHonorPath, toQuery(query))
+}
+
+// BaseballHonorQuery 棒球榮譽列表查詢參數
+type BaseballHonorQuery struct {
+	UUID *string `json:"uuid,omitempty"`
+	Page *int    `json:"page,omitempty"`
+	Time *int    `json:"time,omitempty"`
+}
+
+// BaseballHonorResponse 棒球榮譽列表回應
+type BaseballHonorResponse = Response[[]BaseballHonorResponseData]
+
+// BaseballHonor 取得棒球榮譽列表
+func (c *Client) BaseballHonor(ctx context.Context, query BaseballHonorQuery) (*BaseballHonorResponse, error) {
+	return secretGet[BaseballHonorResponse](ctx, c, baseballHonorPath, toQuery(query))
+}
+
+// BaseballBracketSeasonQuery 棒球對戰圖查詢參數
+type BaseballBracketSeasonQuery struct {
+	UUID *string `json:"uuid,omitempty"`
+}
+
+// BaseballBracketSeasonResponse 棒球對戰圖回應
+type BaseballBracketSeasonResponse = Response[BaseballBracketSeasonResultData]
+
+// BaseballBracketSeason 取得棒球對戰圖
+func (c *Client) BaseballBracketSeason(ctx context.Context, query BaseballBracketSeasonQuery) (*BaseballBracketSeasonResponse, error) {
+	return secretGet[BaseballBracketSeasonResponse](ctx, c, baseballBracketSeasonPath, toQuery(query))
+}
+
+// BaseballDataUpdateResponse 棒球資料更新回應
+type BaseballDataUpdateResponse = Response[json.RawMessage]
+
+// BaseballDataUpdate 取得棒球資料更新
+func (c *Client) BaseballDataUpdate(ctx context.Context) (*BaseballDataUpdateResponse, error) {
+	return secretGet[BaseballDataUpdateResponse](ctx, c, baseballDataUpdatePath)
+}
+
+// BaseballDeletedResponse 棒球刪除資料回應
+type BaseballDeletedResponse = Response[json.RawMessage]
+
+// BaseballDeleted 取得棒球刪除資料
+func (c *Client) BaseballDeleted(ctx context.Context) (*BaseballDeletedResponse, error) {
+	return secretGet[BaseballDeletedResponse](ctx, c, baseballDeletedPath)
+}
+
+// BaseballOddsLiveResponse 棒球即時賠率回應
+type BaseballOddsLiveResponse = Response[json.RawMessage]
+
+// BaseballOddsLive 取得棒球即時賠率
+func (c *Client) BaseballOddsLive(ctx context.Context) (*BaseballOddsLiveResponse, error) {
+	return secretGet[BaseballOddsLiveResponse](ctx, c, baseballOddsLivePath)
+}
+
+// BaseballOddsHistoryQuery 棒球歷史賠率查詢參數
+type BaseballOddsHistoryQuery struct {
+	UUID *string `json:"uuid,omitempty"`
+}
+
+// BaseballOddsHistoryResponse 棒球歷史賠率回應
+type BaseballOddsHistoryResponse = Response[json.RawMessage]
+
+// BaseballOddsHistory 取得棒球歷史賠率
+func (c *Client) BaseballOddsHistory(ctx context.Context, query BaseballOddsHistoryQuery) (*BaseballOddsHistoryResponse, error) {
+	return secretGet[BaseballOddsHistoryResponse](ctx, c, baseballOddsHistoryPath, toQuery(query))
 }
