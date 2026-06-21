@@ -23,7 +23,7 @@ func (c *Client) BaseballCountry(ctx context.Context) (*BaseballCountryResponse,
 
 // BaseballUniqueTournamentQuery 棒球賽事查詢參數
 type BaseballUniqueTournamentQuery struct {
-	UUID *string `json:"uuid,omitempty"`
+	UUID string `json:"uuid"`
 	Page *int    `json:"page,omitempty"`
 	Time *int    `json:"time,omitempty"`
 }
@@ -38,7 +38,7 @@ func (c *Client) BaseballUniqueTournament(ctx context.Context, query BaseballUni
 
 // BaseballTeamQuery 棒球球隊查詢參數
 type BaseballTeamQuery struct {
-	UUID *string `json:"uuid,omitempty"`
+	UUID string `json:"uuid"`
 	Page *int    `json:"page,omitempty"`
 	Time *int    `json:"time,omitempty"`
 }
@@ -53,7 +53,7 @@ func (c *Client) BaseballTeam(ctx context.Context, query BaseballTeamQuery) (*Ba
 
 // BaseballPlayerQuery 棒球球員查詢參數
 type BaseballPlayerQuery struct {
-	UUID *string `json:"uuid,omitempty"`
+	UUID string `json:"uuid"`
 	Page *int    `json:"page,omitempty"`
 	Time *int    `json:"time,omitempty"`
 }
@@ -68,7 +68,7 @@ func (c *Client) BaseballPlayer(ctx context.Context, query BaseballPlayerQuery) 
 
 // BaseballVenueQuery 棒球場館查詢參數
 type BaseballVenueQuery struct {
-	UUID *string `json:"uuid,omitempty"`
+	UUID string `json:"uuid"`
 	Page *int    `json:"page,omitempty"`
 	Time *int    `json:"time,omitempty"`
 }
@@ -83,7 +83,7 @@ func (c *Client) BaseballVenue(ctx context.Context, query BaseballVenueQuery) (*
 
 // BaseballSeasonQuery 棒球賽季查詢參數
 type BaseballSeasonQuery struct {
-	UUID *string `json:"uuid,omitempty"`
+	UUID string `json:"uuid"`
 	Page *int    `json:"page,omitempty"`
 	Time *int    `json:"time,omitempty"`
 }
@@ -98,7 +98,7 @@ func (c *Client) BaseballSeason(ctx context.Context, query BaseballSeasonQuery) 
 
 // BaseballMatchListQuery 棒球比賽列表查詢參數
 type BaseballMatchListQuery struct {
-	UUID *string `json:"uuid,omitempty"`
+	UUID string `json:"uuid"`
 	Page *int    `json:"page,omitempty"`
 	Time *int    `json:"time,omitempty"`
 }
@@ -134,7 +134,7 @@ func (c *Client) BaseballMatchDiary(ctx context.Context, query BaseballMatchDiar
 
 // BaseballMatchSeasonQuery 棒球比賽賽季查詢參數
 type BaseballMatchSeasonQuery struct {
-	UUID *string `json:"uuid,omitempty"`
+	UUID string `json:"uuid"`
 }
 
 // BaseballMatchSeasonResponse 棒球比賽賽季回應
@@ -147,7 +147,7 @@ func (c *Client) BaseballMatchSeason(ctx context.Context, query BaseballMatchSea
 
 // BaseballMatchLiveHistoryQuery 棒球歷史比賽統計查詢參數
 type BaseballMatchLiveHistoryQuery struct {
-	UUID *string `json:"uuid,omitempty"`
+	UUID string `json:"uuid"`
 }
 
 // BaseballMatchLiveHistoryResponse 棒球歷史比賽統計回應
@@ -160,7 +160,7 @@ func (c *Client) BaseballMatchLiveHistory(ctx context.Context, query BaseballMat
 
 // BaseballSeasonTableQuery 棒球賽季排名查詢參數
 type BaseballSeasonTableQuery struct {
-	UUID *string `json:"uuid,omitempty"`
+	UUID string `json:"uuid"`
 }
 
 // BaseballSeasonTableResponse 棒球賽季排名回應
@@ -173,7 +173,7 @@ func (c *Client) BaseballSeasonTable(ctx context.Context, query BaseballSeasonTa
 
 // BaseballSeasonTeamStatsQuery 棒球賽季球隊統計查詢參數
 type BaseballSeasonTeamStatsQuery struct {
-	UUID *string `json:"uuid,omitempty"`
+	UUID string `json:"uuid"`
 }
 
 // BaseballSeasonTeamStatsResponse 棒球賽季球隊統計回應
@@ -186,7 +186,7 @@ func (c *Client) BaseballSeasonTeamStats(ctx context.Context, query BaseballSeas
 
 // BaseballSeasonPlayerStatsQuery 棒球賽季球員統計查詢參數
 type BaseballSeasonPlayerStatsQuery struct {
-	UUID *string `json:"uuid,omitempty"`
+	UUID string `json:"uuid"`
 }
 
 // BaseballSeasonPlayerStatsResponse 棒球賽季球員統計回應
@@ -199,7 +199,7 @@ func (c *Client) BaseballSeasonPlayerStats(ctx context.Context, query BaseballSe
 
 // BaseballSeasonCoachStatsQuery 棒球賽季教練統計查詢參數
 type BaseballSeasonCoachStatsQuery struct {
-	UUID *string `json:"uuid,omitempty"`
+	UUID string `json:"uuid"`
 }
 
 // BaseballSeasonCoachStatsResponse 棒球賽季教練統計回應
@@ -212,7 +212,7 @@ func (c *Client) BaseballSeasonCoachStats(ctx context.Context, query BaseballSea
 
 // BaseballTeamSquadQuery 棒球球隊陣容查詢參數
 type BaseballTeamSquadQuery struct {
-	UUID *string `json:"uuid,omitempty"`
+	UUID string `json:"uuid"`
 	Page *int    `json:"page,omitempty"`
 	Time *int    `json:"time,omitempty"`
 }
@@ -227,7 +227,7 @@ func (c *Client) BaseballTeamSquad(ctx context.Context, query BaseballTeamSquadQ
 
 // BaseballTeamInjuryQuery 棒球球隊傷病查詢參數
 type BaseballTeamInjuryQuery struct {
-	UUID *string `json:"uuid,omitempty"`
+	UUID string `json:"uuid"`
 	Page *int    `json:"page,omitempty"`
 	Time *int    `json:"time,omitempty"`
 }
@@ -242,7 +242,7 @@ func (c *Client) BaseballTeamInjury(ctx context.Context, query BaseballTeamInjur
 
 // BaseballTeamHonorQuery 棒球球隊榮譽查詢參數
 type BaseballTeamHonorQuery struct {
-	UUID *string `json:"uuid,omitempty"`
+	UUID string `json:"uuid"`
 	Page *int    `json:"page,omitempty"`
 	Time *int    `json:"time,omitempty"`
 }
@@ -257,7 +257,7 @@ func (c *Client) BaseballTeamHonor(ctx context.Context, query BaseballTeamHonorQ
 
 // BaseballPlayerHonorQuery 棒球球員榮譽查詢參數
 type BaseballPlayerHonorQuery struct {
-	UUID *string `json:"uuid,omitempty"`
+	UUID string `json:"uuid"`
 	Page *int    `json:"page,omitempty"`
 	Time *int    `json:"time,omitempty"`
 }
@@ -272,7 +272,7 @@ func (c *Client) BaseballPlayerHonor(ctx context.Context, query BaseballPlayerHo
 
 // BaseballCoachHonorQuery 棒球教練榮譽查詢參數
 type BaseballCoachHonorQuery struct {
-	UUID *string `json:"uuid,omitempty"`
+	UUID string `json:"uuid"`
 	Page *int    `json:"page,omitempty"`
 	Time *int    `json:"time,omitempty"`
 }
@@ -287,7 +287,7 @@ func (c *Client) BaseballCoachHonor(ctx context.Context, query BaseballCoachHono
 
 // BaseballHonorQuery 棒球榮譽列表查詢參數
 type BaseballHonorQuery struct {
-	UUID *string `json:"uuid,omitempty"`
+	UUID string `json:"uuid"`
 	Page *int    `json:"page,omitempty"`
 	Time *int    `json:"time,omitempty"`
 }
@@ -302,7 +302,7 @@ func (c *Client) BaseballHonor(ctx context.Context, query BaseballHonorQuery) (*
 
 // BaseballBracketSeasonQuery 棒球對戰圖查詢參數
 type BaseballBracketSeasonQuery struct {
-	UUID *string `json:"uuid,omitempty"`
+	UUID string `json:"uuid"`
 }
 
 // BaseballBracketSeasonResponse 棒球對戰圖回應
@@ -339,7 +339,7 @@ func (c *Client) BaseballOddsLive(ctx context.Context) (*BaseballOddsLiveRespons
 
 // BaseballOddsHistoryQuery 棒球歷史賠率查詢參數
 type BaseballOddsHistoryQuery struct {
-	UUID *string `json:"uuid,omitempty"`
+	UUID string `json:"uuid"`
 }
 
 // BaseballOddsHistoryResponse 棒球歷史賠率回應
