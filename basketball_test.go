@@ -16,6 +16,7 @@ func TestBasketballBasicInfo(t *testing.T) {
 	debug(client.BasketballCompetition(ctx, thesportsgo.BasketballCompetitionQuery{}))(t, "BasketballCompetition")
 	debug(client.BasketballTeam(ctx, thesportsgo.BasketballTeamQuery{}))(t, "BasketballTeam")
 	debug(client.BasketballPlayer(ctx, thesportsgo.BasketballPlayerQuery{}))(t, "BasketballPlayer")
+	debug(client.BasketballCoach(ctx, thesportsgo.BasketballCoachQuery{}))(t, "BasketballCoach")
 	debug(client.BasketballVenue(ctx, thesportsgo.BasketballVenueQuery{}))(t, "BasketballVenue")
 	debug(client.BasketballSeason(ctx, thesportsgo.BasketballSeasonQuery{}))(t, "BasketballSeason")
 	debug(client.BasketballStage(ctx, thesportsgo.BasketballStageQuery{}))(t, "BasketballStage")
@@ -25,15 +26,15 @@ func TestBasketballMatch(t *testing.T) {
 	ctx, cancel := context.WithCancelCause(context.Background())
 	defer cancel(nil)
 
-	debug(client.BasketballMatch(ctx, thesportsgo.BasketballMatchQuery{}))(t, "BasketballMatch")
-	debug(client.BasketballStandings(ctx, thesportsgo.BasketballStandingsQuery{}))(t, "BasketballStandings")
+	debug(client.BasketballMatchRecent(ctx, thesportsgo.BasketballMatchRecentQuery{}))(t, "BasketballMatchRecent")
+	debug(client.BasketballSeasonRecentTableDetail(ctx, thesportsgo.BasketballSeasonRecentTableDetailQuery{}))(t, "BasketballSeasonRecentTableDetail")
 }
 
 func TestBasketballMatchDetail(t *testing.T) {
 	ctx, cancel := context.WithCancelCause(context.Background())
 	defer cancel(nil)
 
-	debug(client.BasketballMatchDetail(ctx, thesportsgo.BasketballMatchDetailQuery{}))(t, "BasketballMatchDetail")
-	debug(client.BasketballMatchLineup(ctx, thesportsgo.BasketballMatchLineupQuery{}))(t, "BasketballMatchLineup")
-	debug(client.BasketballMatchStatistics(ctx, thesportsgo.BasketballMatchStatisticsQuery{}))(t, "BasketballMatchStatistics")
+	debug(client.BasketballMatchDetailLive(ctx))(t, "BasketballMatchDetailLive")
+	debug(client.BasketballMatchLineupLive(ctx))(t, "BasketballMatchLineupLive")
+	debug(client.BasketballMatchLiveHistory(ctx, thesportsgo.BasketballMatchLiveHistoryQuery{}))(t, "BasketballMatchLiveHistory")
 }
