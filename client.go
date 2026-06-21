@@ -54,9 +54,7 @@ func (c *Client) handlePath(path string) string {
 	if pathIsAbs(path) {
 		return path
 	}
-	if strings.HasPrefix(path, "/") {
-		path = path[1:]
-	}
+	path = strings.TrimPrefix(path, "/")
 	if strings.HasSuffix(c.baseURL, "/") {
 		return c.baseURL + path
 	}

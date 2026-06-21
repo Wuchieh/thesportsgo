@@ -39,13 +39,6 @@ func handleContext(ctx context.Context) context.Context {
 	return context.Background()
 }
 
-func must[T any](t T, err error) T {
-	if err != nil {
-		panic(err)
-	}
-	return t
-}
-
 func toQuery(a any) url.Values {
 	marshal, err := json.Marshal(a)
 	if err != nil {
