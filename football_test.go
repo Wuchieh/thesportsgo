@@ -7,7 +7,7 @@ import (
 	"github.com/wuchieh/thesportsgo"
 )
 
-func TestFootballBasicIngo(t *testing.T) {
+func TestFootballBasicInfo(t *testing.T) {
 	ctx, cancel := context.WithCancelCause(context.Background())
 	defer cancel(nil)
 
@@ -21,4 +21,18 @@ func TestFootballBasicIngo(t *testing.T) {
 	debug(client.FootballVenue(ctx, thesportsgo.FootballVenueQuery{}))(t, "FootballVenue")
 	debug(client.FootballSeason(ctx, thesportsgo.FootballSeasonQuery{}))(t, "FootballSeason")
 	debug(client.FootballStage(ctx, thesportsgo.FootballStageQuery{}))(t, "FootballStage")
+}
+
+func TestFootballMatch(t *testing.T) {
+	ctx, cancel := context.WithCancelCause(context.Background())
+	defer cancel(nil)
+
+	debug(client.FootballMatchList(ctx, thesportsgo.FootballMatchQuery{}))(t, "FootballMatchList")
+	debug(client.FootballMatchRecentList(ctx, thesportsgo.FootballMatchQuery{}))(t, "FootballMatchRecentList")
+	debug(client.FootballMatchDetailLive(ctx))(t, "FootballMatchDetailLive")
+	debug(client.FootballMatchTrendLive(ctx))(t, "FootballMatchTrendLive")
+	debug(client.FootballMatchPlayerStatsList(ctx))(t, "FootballMatchPlayerStatsList")
+	debug(client.FootballMatchTeamStatsList(ctx))(t, "FootballMatchTeamStatsList")
+	debug(client.FootballMatchHalfTeamStatsList(ctx))(t, "FootballMatchHalfTeamStatsList")
+	debug(client.FootballMatchTVList(ctx, thesportsgo.FootballMatchQuery{}))(t, "FootballMatchTVList")
 }
