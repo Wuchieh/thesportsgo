@@ -28,10 +28,6 @@ func must[T any](t T, err error) T {
 	return t
 }
 
-func toPtr[T any](t T) *T {
-	return &t
-}
-
 func getPath(path ...string) string {
 	return filepath.Join(append([]string{"_test", "output"}, path...)...)
 }
