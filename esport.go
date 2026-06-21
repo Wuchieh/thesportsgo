@@ -79,7 +79,7 @@ func (c *Client) CsgoMatch(ctx context.Context, query CsgoListQuery) (*CsgoMatch
 
 // CsgoMatchDiaryQuery CS:GO 賽程日誌查詢參數
 type CsgoMatchDiaryQuery struct {
-	Tsp *int `json:"tsp,omitempty"`
+	Tsp int `json:"tsp"`
 }
 
 // CsgoMatchDiary 取得 CS:GO 賽程與結果（依日期查詢）
